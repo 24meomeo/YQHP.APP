@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void nextActivity() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Intent intent = new Intent(this, dangnhap.class);
+        Intent intent = new Intent(this, DangNhapActivity.class);
         startActivity(intent);
 
     }

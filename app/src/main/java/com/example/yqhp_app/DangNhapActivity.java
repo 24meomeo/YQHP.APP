@@ -3,7 +3,7 @@ package com.example.yqhp_app;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class dangnhap extends AppCompatActivity {
+public class DangNhapActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
