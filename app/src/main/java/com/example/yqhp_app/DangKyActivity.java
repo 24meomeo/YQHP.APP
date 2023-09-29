@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DangKyActivity extends AppCompatActivity {
-    private EditText medtmaildk, medtpassdk, medtpassdk2;
+    private EditText medtmaildk, medtpassdk, medtpassdk2 ;
+    private TextView mtvdn;
     private Button mbtndangky;
     private FirebaseAuth auth;
     FirebaseFirestore firestore;
@@ -37,11 +39,12 @@ public class DangKyActivity extends AppCompatActivity {
         medtpassdk = findViewById(R.id.edtpassdk);
         medtpassdk2 = findViewById(R.id.edtpassdk2);
         mbtndangky = findViewById(R.id.btnDangKy);
+        mtvdn = findViewById(R.id.tvdn);
 
 
         firestore = FirebaseFirestore.getInstance();
 
-//        DangKyListener(); // cái này dùng để set cho nút đăng nhập bên đăng ký nè hyen
+        DangnhapListener(); // cái này dùng để set cho nút đăng nhập bên đăng ký nè hyen
         mbtndangky.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,13 +100,13 @@ public class DangKyActivity extends AppCompatActivity {
 
     }
 
-//    private void DangKyListener() {
-//        mbtndangky.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(DangKyActivity.this, MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
+    private void DangnhapListener() {
+        mbtndangky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DangKyActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 }
