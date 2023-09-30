@@ -1,8 +1,10 @@
 package com.example.yqhp_app;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -56,8 +58,17 @@ public class DangKyActivity extends AppCompatActivity {
                 String stringpass2 = medtpassdk2.getText().toString();
 
                 if (TextUtils.isEmpty(stringemail)){
-                    Toast.makeText(DangKyActivity.this, "Vui lòng nhập Email.", Toast.LENGTH_SHORT).show();
-                    medtmaildk.requestFocus();
+                    AlertDialog.Builder d = new AlertDialog.Builder(DangKyActivity.this);
+                    // thiết lập tiêu đề, nội dung, nút button
+                    d.setTitle("Cần có email");
+                    d.setTitle("Vui lòng nhập email của bạn để tiếp  tục");
+                    d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(DangKyActivity.this, DangKyActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                 } else if (TextUtils.isEmpty(stringpass1)) {
                     Toast.makeText(DangKyActivity.this, "Vui lòng nhập mật khẩu.", Toast.LENGTH_SHORT).show();
                     medtpassdk.requestFocus();
